@@ -70,6 +70,7 @@ init()
 	
 	registerDvars();
 	maps\mp\gametypes\_class::initPerkDvars();
+	maps\mp\gametypes\_tactical::init();
 
 	level.oldschool = ( getDvarInt( "scr_oldschool_mw" ) == 1 );
 	if ( level.oldschool )
