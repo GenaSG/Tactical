@@ -26,7 +26,13 @@ onPlayerSpawned()
                 self waittill("spawned_player");
 		self thread GunWatcher();
 		self thread SuppressionController();
+		self thread moveSpeed();
         }
+}
+moveSpeed()
+{
+	speedScale = getDvarFloat( "player_movespeed" );
+	self SetMoveSpeedScale( speedScale );
 }
 SuppressionController()
 {
@@ -54,15 +60,15 @@ PlaySuppression(distance)
 	distance = 1;
 	}
 	time = 1/distance;
-	self shellShock( "frag_grenade_mp", 1 );
+	self shellShock( "frag_grenade_mp", 0.5 );
 }
 GunWatcher()
 {
 	for(;;)
 	{
 		self waittill("weapon_fired");
-                vel = Length(self GetVelocity()) * 0.0254;
-                self iprintln("velocity" + vel);
+               // vel = Length(self GetVelocity()) * 0.0254;
+               // self iprintln("velocity" + vel);
 		self thread SendShotVector();
 	}
 }
