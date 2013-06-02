@@ -27,7 +27,30 @@ onPlayerSpawned()
 		self thread GunWatcher();
 		self thread SuppressionController();
 		self thread moveSpeed();
+		self thread GunShotWatcher();
         }
+}
+GunShotWatcher()
+{
+	while(isAlive(self))
+        {
+		level waittill("gunshot",origin,owner,gun);
+		if(owner != self && isDefined(origin))
+		{
+			//self iprintln("bang!!!");
+			Dist = distance(self getPlayerEyes(),origin);
+			if(Dist >= 600)
+			{
+				delay=Dist/11800;
+				wait(delay);
+				owner PlaySoundToPlayer( "weap_rem700sniper_fire_npc", self );
+			}
+			else
+			{
+				owner PlaySoundToPlayer( "weap_rem700sniper_fire_npc", self );
+			}
+		}
+	}
 }
 moveSpeed()
 {
@@ -37,7 +60,7 @@ moveSpeed()
 SuppressionController()
 {
 	self.suppressionDist = 60;
-	for(;;)
+	while(isAlive(self))
         {
                 level waittill("suppress",start,end,owner);
 		if(self != owner)
@@ -61,16 +84,22 @@ PlaySuppression(distance)
 	}
 	time = 1/distance;
 	self shellShock( "frag_grenade_mp", 0.5 );
+	self PlaySoundToPlayer( "whizby", self );
 }
 GunWatcher()
 {
-	for(;;)
+	while(isAlive(self))
 	{
 		self waittill("weapon_fired");
                // vel = Length(self GetVelocity()) * 0.0254;
                // self iprintln("velocity" + vel);
 		self thread SendShotVector();
+		self thread SendShotSound();
 	}
+}
+SendShotSound()
+{
+	level notify("gunshot",self getPlayerEyes(), self,self GetCurrentWeapon() );
 }
 SendShotVector()
 {
