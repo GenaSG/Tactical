@@ -2,7 +2,9 @@
 init()
 {
 	precacheShellShock( "frag_grenade_mp" );
+	precacheRumble( "artillery_rumble" );
         level thread onPlayerConnect();
+	maps\mp\gametypes\_defaults::init();
 }
 
 onPlayerConnect()
@@ -29,12 +31,13 @@ onPlayerSpawned()
 SuppressionController()
 {
 	self.suppressionDist = 60;
-       for(;;)
+	for(;;)
         {
                 level waittill("suppress",start,end,owner);
 		if(self != owner)
 		{
-	                dist = Length(VectorFromLineToPoint( start, end, self getPlayerEyes() ));
+			distVect = VectorFromLineToPoint( start, end, self getPlayerEyes() );
+	                dist = Length(distVect);
                 	//self iprintln("Distance to vector="+dist);
                		if ( dist <= self.suppressionDist )
                		{
@@ -46,6 +49,7 @@ SuppressionController()
 }
 PlaySuppression(distance)
 {
+
 	if(distance <=1){
 	distance = 1;
 	}
@@ -57,7 +61,8 @@ GunWatcher()
 	for(;;)
 	{
 		self waittill("weapon_fired");
-	//	self iprintln("weapon fired!!!");
+                vel = Length(self GetVelocity()) * 0.0254;
+                self iprintln("velocity" + vel);
 		self thread SendShotVector();
 	}
 }
@@ -87,7 +92,7 @@ getPlayerEyes()
     case "stand":
         playerEyes += (0,0,60);
     break;
-}
+    }
 
 return playerEyes;	
 }
