@@ -27,31 +27,43 @@ onPlayerSpawned()
 		self thread GunWatcher();
 		self thread SuppressionController();
 		self thread moveSpeed();
-		self thread GunShotWatcher();
+		self thread GunShotPlayer();
         }
 }
-GunShotWatcher()
+GunShotPlayer()
 {
 	while(isAlive(self))
-        {
-		level waittill("gunshot",origin,owner,gun);
-		if(owner != self && isDefined(origin))
+	{
+		self waittill("weapon_fired");
+		//SoundOrigin = self getPlayerEyes();
+		TheGun = self GetCurrentWeapon();
+		for(i=0;i<=level.players.size;i++)
 		{
-			//self iprintln("bang!!!");
-			Dist = distance(self getPlayerEyes(),origin);
-			if(Dist >= 600)
+			if(isDefined(level.players[i]))
 			{
-				delay=Dist/11800;
-				wait(delay);
-				owner PlaySoundToPlayer( "weap_rem700sniper_fire_npc", self );
-			}
-			else
-			{
-				owner PlaySoundToPlayer( "weap_rem700sniper_fire_npc", self );
-			}
-		}
+				self thread PlayGunShot(level.players[i],TheGun);		
+		}	}
 	}
 }
+PlayGunShot(listener,TheGun)
+{
+	        if( listener != self )
+                {
+                        //self iprintln("bang!!!");
+                        Dist = distance(self getPlayerEyes(),listener getPlayerEyes());
+                        if(Dist >= 600)
+                        {
+                                delay=Dist/11800;
+                                wait(delay);
+                                self PlaySoundToPlayer( "weap_rem700sniper_fire_npc", listener );
+                        }
+                        else
+                        {
+                                self PlaySoundToPlayer( "weap_rem700sniper_fire_npc", listener );
+                        }
+                }
+}
+
 moveSpeed()
 {
 	speedScale = getDvarFloat( "player_movespeed" );
@@ -91,10 +103,8 @@ GunWatcher()
 	while(isAlive(self))
 	{
 		self waittill("weapon_fired");
-               // vel = Length(self GetVelocity()) * 0.0254;
                // self iprintln("velocity" + vel);
 		self thread SendShotVector();
-		self thread SendShotSound();
 	}
 }
 SendShotSound()
