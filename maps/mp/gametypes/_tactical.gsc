@@ -11,42 +11,48 @@ loadWeaponSounds()
 {
 	level.ShotSound=[];
 	level.weapon=[];
-	
+	// Assault class weapons	
 	level.weapon[ "m16_acog_mp" ]["ShotSound"] = "weap_m16_fire_npc";
 	level.weapon[ "m16_gl_mp" ]["ShotSound"] = "weap_m16_fire_npc";
 	level.weapon[ "m16_mp" ]["ShotSound"] = "weap_m16_fire_npc";
 	level.weapon[ "m16_reflex_mp" ]["ShotSound"] = "weap_m16_fire_npc";
 	level.weapon[ "m16_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+        level.weapon[ "gl_m16_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
 	level.weapon[ "ak47_acog_mp" ]["ShotSound"] = "weap_ak47_fire_npc";
 	level.weapon[ "ak47_gl_mp" ]["ShotSound"] = "weap_ak47_fire_npc";
 	level.weapon[ "ak47_mp" ]["ShotSound"] = "weap_ak47_fire_npc";
 	level.weapon[ "ak47_reflex_mp" ]["ShotSound"] = "weap_ak47_fire_npc";
 	level.weapon[ "ak47_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+	level.weapon[ "gl_ak47_mp" ]["ShotSound"] = "weap_gp25_fire_npc";
 
 	level.weapon[ "m4_acog_mp" ]["ShotSound"] = "weap_m4carbine_fire_plr";
 	level.weapon[ "m4_gl_mp" ]["ShotSound"] = "weap_m4carbine_fire_plr";
 	level.weapon[ "m4_mp" ]["ShotSound"] = "weap_m4carbine_fire_plr";
 	level.weapon[ "m4_reflex_mp" ]["ShotSound"] = "weap_m4carbine_fire_plr";
 	level.weapon[ "m4_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+	level.weapon[ "gl_m4_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
 	level.weapon[ "g3_acog_mp" ]["ShotSound"] = "weap_g3_fire_plr";
 	level.weapon[ "g3_gl_mp" ]["ShotSound"] = "weap_g3_fire_plr";
 	level.weapon[ "g3_mp" ]["ShotSound"] = "weap_g3_fire_plr";
 	level.weapon[ "g3_reflex_mp" ]["ShotSound"] = "weap_g3_fire_plr";
 	level.weapon[ "g3_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+	level.weapon[ "gl_g3_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
 	level.weapon[ "g36c_acog_mp" ]["ShotSound"] = "weap_g36c_fire_npc";
 	level.weapon[ "g36c_gl_mp" ]["ShotSound"] = "weap_g36c_fire_npc";
 	level.weapon[ "g36c_mp" ]["ShotSound"] = "weap_g36c_fire_npc";
 	level.weapon[ "g36c_reflex_mp" ]["ShotSound"] = "weap_g36c_fire_npc";
 	level.weapon[ "g36c_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+	level.weapon[ "gl_g36c_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
 	level.weapon[ "m14_acog_mp" ]["ShotSound"] = "weap_m14sniper_fire_npc";
 	level.weapon[ "m14_gl_mp" ]["ShotSound"] = "weap_m14sniper_fire_npc";
 	level.weapon[ "m14_mp" ]["ShotSound"] = "weap_m14sniper_fire_npc";
 	level.weapon[ "m14_reflex_mp" ]["ShotSound"] = "weap_m14sniper_fire_npc";
 	level.weapon[ "m14_silencer_mp" ]["ShotSound"] = "weap_m4silenced_fire_npc";
+	level.weapon[ "gl_m14_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
 	level.weapon[ "mp44_mp" ]["ShotSound"] = "weap_mp44_fire_npc";
 
