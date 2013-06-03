@@ -189,11 +189,11 @@ PlayGunShot(listener,TheGun)
 			}
 			else
 			{
-				ShotSound = level.weapon[ "ak47_acog_mp" ]["ShotSound"];
+				return;
 			}
 			
                         dist = distance(self getplayereyes(),listener getplayereyes());
-                        if(dist >= 600 && !issubstr( thegun, "silencer" ))
+                        if(dist >= 600 && !issubstr( TheGun, "silencer" ))
                         {
                                 delay=dist/11800;
                                 wait(delay);
@@ -246,7 +246,7 @@ gunwatcher()
 	{
 		self waittill("weapon_fired");
                // self iprintln("velocity" + vel);
-		self playsoundtoplayer( "whizby", self );
+		//self playsoundtoplayer( "whizby", self );
 		self thread sendshotvector();
 	}
 }
