@@ -12,6 +12,7 @@ init()
 	setDvar( "player_sprintSpeedScale", 2);
 	setDvar( "player_sprintTime", 12);
 	setDvar( "scr_player_sprinttime", 12);
+	setDvar( "scr_game_hardpoints", 0);
 	//setDvar( "class_assault_movespeed", 0.6 );
 	//setDvar( "class_specops_movespeed", 0.6 );
 	//setDvar( "class_heavygunner_movespeed", 0.6 );
