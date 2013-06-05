@@ -105,7 +105,7 @@ playsuppression(distance)
 	}
 	time = 1/distance;
 	self shellshock( "frag_grenade_mp", 0.5 );
-	self playsoundtoplayer( "whizby", self );
+	//self playsoundtoplayer( "whizby", self );
 }
 gunwatcher()
 {
