@@ -1,3 +1,5 @@
 #!/bin/bash
 zip -0 -r Archive.zip ./maps ./weapons ./images ./sound
-[ -f Archive.zip ] && mv Archive.zip tactical.iwd && echo OK!
+[ ! -e ./build/tactical ] && mkdir -p ./build/tactical
+[ -f Archive.zip ] && mv Archive.zip ./build/tactical/tactical.iwd && echo OK!
+
