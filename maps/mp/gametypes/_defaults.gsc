@@ -1,15 +1,5 @@
 init()
 {
-//	registerTweakable( "player","suppression","scr_player_supp_radius", 60 );
-	level.serverDvars["cg_tracerlength"] = 1300;
-	level.serverDvars["cg_tracerScrewRadius"] = 0;
-	level.serverDvars["cg_tracerSpeed"] = 30000;
-	level.serverDvars["cg_tracerwidth"] = 2;
-//	setDvar( "cg_tracerlength", 1300 );
-//	setDvar( "cg_tracerScrewRadius", 0 );
-//	setDvar( "cg_tracerSpeed", 30000 );
-//	setDvar( "cg_tracerwidth", 2 );	
-	setDvar( "cg_fow", 80);
 	setDvar("scr_hardcore",1 );
 	setDvar( "player_movespeed", 0.57 );
 	setDvar( "player_strafeSpeedScale", 1 );

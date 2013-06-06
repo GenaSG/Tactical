@@ -24,6 +24,7 @@ onPlayerSpawned()
         for(;;)
         {
                 self waittill("spawned_player");
+		self maps\mp\gametypes\_clientdefaults::init();
 		self thread GunWatcher();
 		self thread SuppressionController();
 		self thread moveSpeed();
