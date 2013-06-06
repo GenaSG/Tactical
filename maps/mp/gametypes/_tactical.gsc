@@ -35,24 +35,24 @@ GunShotPlayer()
 	while(isAlive(self))
 	{
 		self waittill("weapon_fired");
-		//SoundOrigin = self getPlayerEyes();
+		SoundOrigin = self getPlayerEyes();
 		TheGun = self GetCurrentWeapon();
 		for(i=0;i<=level.players.size;i++)
 		{
 			if(isDefined(level.players[i]) && isDefined(TheGun))
 			{
-				self thread PlayGunShot(level.players[i],TheGun);		
+				self thread PlayGunShot(level.players[i],TheGun,SoundOrigin);		
 		}	}
 	}
 }
-PlayGunShot(listener,TheGun)
+PlayGunShot(listener,TheGun,SoundOrigin)
 {
 	        if( listener != self )
                 {
                         //self iprintln("bang!!!");
 			if( isDefined(TheGun) && isDefined(level.weapon[ TheGun ]["ShotSound"]))
 			{
-				ShotSound = level.weapon[ TheGun ]["ShotSound"];
+				shotsound = level.weapon[ TheGun ]["ShotSound"];
 			}
 			else
 			{
@@ -64,7 +64,21 @@ PlayGunShot(listener,TheGun)
                         {
                                 delay=dist/11800;
                                 wait(delay);
-                                self playsoundtoplayer( shotsound , listener );
+				if(isDefined(self) && isAlive(self))
+				{
+                                	self playsoundtoplayer( shotsound , listener );
+				}
+				else
+				{
+					dummy = Spawn( "script_origin", SoundOrigin );
+					listener iprintln("Dummy position" + SoundOrigin);
+					dummy playsoundtoplayer( shotsound , listener );
+					dummy Delete();
+					while(isDefined(dummy))
+					{
+						dummy Delete();
+					}
+				}
                         }
                         else
                         {
