@@ -72,7 +72,6 @@ PlayGunShot(listener,TheGun,SoundOrigin)
 				else
 				{
 					dummy = Spawn( "script_origin", SoundOrigin );
-					listener iprintln("Dummy position" + SoundOrigin);
 					dummy playsoundtoplayer( shotsound , listener );
 					dummy Delete();
 					while(isDefined(dummy))
