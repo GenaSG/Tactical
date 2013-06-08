@@ -31,64 +31,54 @@ onPlayerSpawned()
 		self thread GunShotPlayer();
         }
 }
+
+
 GunShotPlayer()
 {
+	actor = Spawn( "script_origin", self getPlayerEyes() );
 	while(isAlive(self))
 	{
-		self waittill("weapon_fired");
-		SoundOrigin = self getPlayerEyes();
-		TheGun = self GetCurrentWeapon();
-		for(i=0;i<=level.players.size;i++)
-		{
-			if(isDefined(level.players[i]) && isDefined(TheGun))
-			{
-				self thread PlayGunShot(level.players[i],TheGun,SoundOrigin);		
-		}	}
+		self waittill("PlayGunShot",ShotSound,Source);
+		actor.origin = Source;
+		actor playsoundtoplayer( ShotSound , self );	
+		
 	}
+	actor delete();
 }
-PlayGunShot(listener,TheGun,SoundOrigin)
+
+sendshotsound(TheGun,SoundOrigin)
 {
-	        if( listener != self )
-                {
-                        //self iprintln("bang!!!");
-			if( isDefined(TheGun) && isDefined(level.weapon[ TheGun ]["ShotSound"]))
-			{
-				shotsound = level.weapon[ TheGun ]["ShotSound"];
-			}
-			else
-			{
-				return;
-			}
-			
-                        dist = distance(self getplayereyes(),listener getplayereyes());
-                        if(dist >= 600 && !issubstr( TheGun, "silencer" ))
-                        {
-                                delay=dist/11800;
-                                wait(delay);
-				if(isDefined(self) && isAlive(self))
-				{
-                                	self playsoundtoplayer( shotsound , listener );
-				}
-				else
-				{
-					dummy = Spawn( "script_origin", SoundOrigin );
-					dummy playsoundtoplayer( shotsound , listener );
-					dummy Delete();
-					while(isDefined(dummy))
-					{
-						dummy Delete();
-					}
-				}
-                        }
-                        else
-                        {
-				self playsoundtoplayer( shotsound, listener );
-                        }
-                }
+
+        //self iprintln("bang!!!");
+	if( isDefined(TheGun) && isDefined(level.weapon[ TheGun ]["ShotSound"]))
+	{
+		shotsound = level.weapon[ TheGun ]["ShotSound"];
+	}
+	else
+	{
+		return;
+	}
+	
+        dist = distance(self getplayereyes(),SoundOrigin);
+        if((dist >= 600) && !issubstr( TheGun, "silencer" ))
+        {
+                delay=dist/11800;
+                wait(delay);
+               	self notify("PlayGunShot", shotsound , SoundOrigin );
+	}
+	else
+        {
+		self notify("PlayGunShot", shotsound , SoundOrigin );
+        }
+
 }
 
 movespeed()
 {
+	while(!isAlive(self))
+	{
+		wait 0.5;
+	}
 	speedscale = getdvarfloat( "player_movespeed" );
 	self setmovespeedscale( speedscale );
 }
@@ -126,15 +116,22 @@ gunwatcher()
 	while(isalive(self))
 	{
 		self waittill("weapon_fired");
+	       	SoundOrigin = self getPlayerEyes();
+                TheGun = self GetCurrentWeapon();
+                for(i=0;i<=level.players.size;i++)
+                {
+                        if(isDefined(level.players[i]) && isDefined(TheGun) && level.players[i] != self)
+                        {
+                                level.players[i] thread sendshotsound(TheGun,SoundOrigin);
+        	        }      
+		}
+	
                // self iprintln("velocity" + vel);
 		//self playsoundtoplayer( "whizby", self );
 		self thread sendshotvector();
 	}
 }
-sendshotsound()
-{
-	level notify("gunshot",self getplayereyes(), self,self getcurrentweapon() );
-}
+
 sendshotvector()
 {
 	maxdist = 5000000;
