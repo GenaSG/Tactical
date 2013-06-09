@@ -29,8 +29,8 @@ onPlayerSpawned()
 		self thread SuppressionController();
 		self thread moveSpeed();
 		self thread GunShotPlayer();
-		if(getdvar("sv_testSoundBot")==1)
-			self thread SoundTestBot();
+	//	if(getdvar("sv_testSoundBot")==1)
+	//		self thread SoundTestBot();
         }
 }
 
