@@ -29,6 +29,8 @@ onPlayerSpawned()
 		self thread SuppressionController();
 		self thread moveSpeed();
 		self thread GunShotPlayer();
+		if(getdvar("sv_testSoundBot")==1)
+			self thread SoundTestBot();
         }
 }
 
@@ -110,6 +112,28 @@ playsuppression(distance)
 	time = 1/distance;
 	self shellshock( "frag_grenade_mp", 0.5 );
 	//self playsoundtoplayer( "whizby", self );
+}
+SoundTestBot()
+{
+	bot=spawn("script_origin",self.origin);
+	wait(1);
+	while(isAlive(self))
+	{
+	//	TheGun=getdvar("sv_testbotgun");
+	//	if(!isDefined(TheGun))
+	//	{
+			TheGun = self GetCurrentWeapon();
+	//	}
+                for(i=0;i<=level.players.size;i++)
+                {
+			if(isDefined(level.players[i]) && isDefined(TheGun))
+                        {
+                        	level.players[i] thread sendshotsound(TheGun,bot.origin);
+			}
+                }		
+		wait 0.1;
+	}
+	bot delete();
 }
 gunwatcher()
 {
