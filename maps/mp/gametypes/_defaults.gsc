@@ -71,9 +71,9 @@ loadWeaponSounds()
 	level.weapon[ "mp5_reflex_mp" ]["ShotSound"] = "weap_mp5_fire_npc";
 	level.weapon[ "mp5_silencer_mp" ]["ShotSound"] = "weap_mp5sd_fire_npc";
 
-	level.weapon[ "skorpion_acog_mp" ]["ShotSound"] = "weap_skorpion_fire_plr";
-	level.weapon[ "skorpion_mp" ]["ShotSound"] = "weap_skorpion_fire_plr";
-	level.weapon[ "skorpion_reflex_mp" ]["ShotSound"] = "weap_skorpion_fire_plr";
+	level.weapon[ "skorpion_acog_mp" ]["ShotSound"] = "weap_miniuzi_fire_npc";
+	level.weapon[ "skorpion_mp" ]["ShotSound"] = "weap_miniuzi_fire_npc";
+	level.weapon[ "skorpion_reflex_mp" ]["ShotSound"] = "weap_miniuzi_fire_npc";
 	level.weapon[ "skorpion_silencer_mp" ]["ShotSound"] = "weap_skorpionsd_fire_npc";
 
 	level.weapon[ "uzi_acog_mp" ]["ShotSound"] = "weap_miniuzi_fire_npc";
