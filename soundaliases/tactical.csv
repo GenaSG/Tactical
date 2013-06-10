@@ -64,9 +64,9 @@ SilencedRifle_plr,,weapons/556rifle/SilencedRifle.wav,1,1,wpnplyr,1.1,1.2,500000
 SilencedRifle_npc,,weapons/556rifle/SilencedRifle.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
 SilencedRifle_npc,,weapons/556rifle/SilencedRifle.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
 
-762_auto_plr,,weapons/762Auto/762Auto.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
-762_auto_npc,,weapons/762Auto/762Auto.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
-762_auto_npc,,weapons/762Auto/762Auto.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
+762_auto_plr,,weapons/762Auto/762_Auto_Rifle.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
+762_auto_npc,,weapons/762Auto/762_Auto_Rifle.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
+762_auto_npc,,weapons/762Auto/762_Auto_Rifle.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
 
 9mm_plr,,weapons/9mm/pistol_smg.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
 9mm_npc,,weapons/9mm/pistol_smg.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
@@ -93,9 +93,9 @@ SilencedRifle_npc,,weapons/556rifle/SilencedRifle.wav,1,1,wpnai,1.2,1.3,35,10920
 762_sniper_npc,,weapons/762sniper/762sniper.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
 762_sniper_npc,,weapons/762sniper/762sniper.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
 
-762x39_plr,,weapons/762x39Rifle/762x39Rifle.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
-762x39_npc,,weapons/762x39Rifle/762x39Rifle.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
-762x39_npc,,weapons/762x39Rifle/762x39Rifle.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
+762_single_plr,,weapons/762Single/762Single.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
+762_single_npc,,weapons/762Single/762Single.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
+762_single_npc,,weapons/762Single/762Single.wav,1,1,wpnai,1.2,1.3,35,10920,weapon,,,,0.7,all_mp,,,,weapon4,,,,
 
 Heavy_plr,,weapons/Heavy/Barrett.wav,1,1,wpnplyr,1.1,1.2,500000,,local,,,,0.85,,,,,weapon2
 Heavy_npc,,weapons/Heavy/Barrett.wav,1,1,wpnai,1.2,1.3,35,8400,weapon,,,,0.7,!ac130 all_mp,,,,weapon4,,,,
