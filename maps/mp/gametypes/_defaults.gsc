@@ -27,10 +27,10 @@ loadWeaponSounds()
 	level.weapon[ "m16_silencer_mp" ]["ShotSound"] = "SilencedRifle_npc";
         level.weapon[ "gl_m16_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
-	level.weapon[ "ak47_acog_mp" ]["ShotSound"] = "762x39_npc";
-	level.weapon[ "ak47_gl_mp" ]["ShotSound"] = "762x39_npc";
-	level.weapon[ "ak47_mp" ]["ShotSound"] = "762x39_npc";
-	level.weapon[ "ak47_reflex_mp" ]["ShotSound"] = "762x39_npc";
+	level.weapon[ "ak47_acog_mp" ]["ShotSound"] = "762_auto_npc";
+	level.weapon[ "ak47_gl_mp" ]["ShotSound"] = "762_auto_npc";
+	level.weapon[ "ak47_mp" ]["ShotSound"] = "762_auto_npc";
+	level.weapon[ "ak47_reflex_mp" ]["ShotSound"] = "762_auto_npc";
 	level.weapon[ "ak47_silencer_mp" ]["ShotSound"] = "SilencedRifle_npc";
 	level.weapon[ "gl_ak47_mp" ]["ShotSound"] = "weap_gp25_fire_npc";
 
@@ -55,14 +55,14 @@ loadWeaponSounds()
 	level.weapon[ "g36c_silencer_mp" ]["ShotSound"] = "SilencedRifle_npc";
 	level.weapon[ "gl_g36c_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
-	level.weapon[ "m14_acog_mp" ]["ShotSound"] = "762_sniper_npc";
-	level.weapon[ "m14_gl_mp" ]["ShotSound"] = "762_sniper_npc";
-	level.weapon[ "m14_mp" ]["ShotSound"] = "762_sniper_npc";
-	level.weapon[ "m14_reflex_mp" ]["ShotSound"] = "762_sniper_npc";
+	level.weapon[ "m14_acog_mp" ]["ShotSound"] = "762_single_npc";
+	level.weapon[ "m14_gl_mp" ]["ShotSound"] = "762_single_npc";
+	level.weapon[ "m14_mp" ]["ShotSound"] = "762_single_npc";
+	level.weapon[ "m14_reflex_mp" ]["ShotSound"] = "762_single_npc";
 	level.weapon[ "m14_silencer_mp" ]["ShotSound"] = "SilencedRifle_npc";
 	level.weapon[ "gl_m14_mp" ]["ShotSound"] = "weap_m203_fire_npc";
 
-	level.weapon[ "mp44_mp" ]["ShotSound"] = "762x39_npc";
+	level.weapon[ "mp44_mp" ]["ShotSound"] = "762_auto_npc";
 
 
 	// Special Ops class weapons
@@ -89,7 +89,7 @@ loadWeaponSounds()
 	level.weapon[ "p90_acog_mp" ]["ShotSound"] = "556_npc";
 	level.weapon[ "p90_mp" ]["ShotSound"] = "556_npc";
 	level.weapon[ "p90_reflex_mp" ]["ShotSound"] = "556_npc";
-	level.weapon[ "p90_silencer_mp" ]["ShotSound"] = "weap_fnp90silenced_fire_npc";
+	level.weapon[ "p90_silencer_mp" ]["ShotSound"] = "SilencedRifle_npc";
 
 
 	// Demolition class weapons
@@ -120,8 +120,8 @@ loadWeaponSounds()
 
 
 	// Sniper class weapons
-	level.weapon[ "dragunov_acog_mp" ]["ShotSound"] = "762_sniper_npc";
-	level.weapon[ "dragunov_mp" ]["ShotSound"] ="762_sniper_npc";
+	level.weapon[ "dragunov_acog_mp" ]["ShotSound"] = "762_single_npc";
+	level.weapon[ "dragunov_mp" ]["ShotSound"] ="762_single_npc";
 
 	level.weapon[ "m40a3_acog_mp" ]["ShotSound"] = "762_sniper_npc";
 	level.weapon[ "m40a3_mp" ]["ShotSound"] = "762_sniper_npc";
@@ -132,8 +132,8 @@ loadWeaponSounds()
 	level.weapon[ "remington700_acog_mp" ]["ShotSound"] = "762_sniper_npc";
 	level.weapon[ "remington700_mp" ]["ShotSound"] = "762_sniper_npc";
 
-	level.weapon[ "m21_acog_mp" ]["ShotSound"] = "762_sniper_npc";
-	level.weapon[ "m21_mp" ]["ShotSound"] = "762_sniper_npc";
+	level.weapon[ "m21_acog_mp" ]["ShotSound"] = "762_single_npc";
+	level.weapon[ "m21_mp" ]["ShotSound"] = "762_single_npc";
 
 
 	// Handguns

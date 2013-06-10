@@ -30,7 +30,7 @@ onPlayerSpawned()
 		self thread moveSpeed();
 		self thread GunShotPlayer();
 	//	if(getdvar("sv_testSoundBot")==1)
-	//		self thread SoundTestBot();
+//			self thread SoundTestBot();
         }
 }
 
@@ -131,7 +131,7 @@ SoundTestBot()
                         	level.players[i] thread sendshotsound(TheGun,bot.origin);
 			}
                 }		
-		wait 0.1;
+		wait 0.2;
 	}
 	bot delete();
 }
