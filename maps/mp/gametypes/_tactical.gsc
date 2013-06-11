@@ -48,6 +48,7 @@ InfiniteLoop()
 	while(isAlive(self))
 	{
 		self thread enemySpotter();
+	//	self iprintln(self.psoffsettime);
 		wait 0.05;
 	}
 }
