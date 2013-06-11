@@ -1,4 +1,4 @@
-init()
+main()
 {
 	while(isAlive(self))
 	{
