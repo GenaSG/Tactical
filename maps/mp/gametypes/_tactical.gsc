@@ -28,6 +28,7 @@ onPlayerSpawned()
 		self thread GunWatcher();
 		self thread SuppressionController();
 		self thread moveSpeed();
+		self thread maps\mp\gametypes\_fx::init();
 		self thread GunShotPlayer();
 	//	if(getdvar("sv_testSoundBot")==1)
 //			self thread SoundTestBot();
@@ -140,6 +141,7 @@ gunwatcher()
 	while(isalive(self))
 	{
 		self waittill("weapon_fired");
+		self iprintln("server fired");
 	       	SoundOrigin = self getPlayerEyes();
                 TheGun = self GetCurrentWeapon();
                 for(i=0;i<=level.players.size;i++)
