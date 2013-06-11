@@ -60,7 +60,7 @@ enemySpotter()
 	{
 		self.nextSpotTime = gettime() + self.spotDelay*1000;
 		Trace = Bullettrace(self getplayereyes(),self getplayereyes()+anglestoforward(self getplayerangles())*self.spottingDist,true,self);
-		if(isDefined(Trace["entity"]) && Trace["entity"].isPlayer && Trace["entity"].team != self.team)
+		if(isDefined(Trace["entity"]) && isPlayer(Trace["entity"] ) && Trace["entity"].team != self.team)
 		{
 			maps\mp\gametypes\_quickmessages::quickstatements("1");
 		//	thread maps\mp\gametypes\_deathicons::addDeathicon( Trace["entity"], self, self.pers["team"], 5.0 );
