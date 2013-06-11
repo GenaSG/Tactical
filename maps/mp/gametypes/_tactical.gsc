@@ -24,17 +24,51 @@ onPlayerSpawned()
         for(;;)
         {
                 self waittill("spawned_player");
+		self thread InitVars();
 		self maps\mp\gametypes\_clientdefaults::init();
 		self thread GunWatcher();
 		self thread SuppressionController();
 		self thread moveSpeed();
+		self thread InfiniteLoop();
 		//self thread maps\mp\gametypes\_fx::init();
 		self thread GunShotPlayer();
 	//	if(getdvar("sv_testSoundBot")==1)
-//			self thread SoundTestBot();
+	//	self thread SoundTestBot();
         }
 }
+InitVars()
+{
+	self.spotDelay=1;
+	self.spottingDist=100000;	
+	self.nextSpotTime=0;
+}
 
+InfiniteLoop()
+{
+	while(isAlive(self))
+	{
+		self thread enemySpotter();
+		wait 0.05;
+	}
+}
+
+enemySpotter()
+{
+	if( !level.teambased || gettime() < self.nextSpotTime)
+		return;
+	if(level.teambased && gettime() >= self.nextSpotTime && self UseButtonPressed())
+	{
+		self.nextSpotTime = gettime() + self.spotDelay*1000;
+		Trace = Bullettrace(self getplayereyes(),self getplayereyes()+anglestoforward(self getplayerangles())*self.spottingDist,true,self);
+		if(isDefined(Trace["entity"]) && Trace["entity"].isPlayer && Trace["entity"].team != self.team)
+		{
+			maps\mp\gametypes\_quickmessages::quickstatements("1");
+		//	thread maps\mp\gametypes\_deathicons::addDeathicon( Trace["entity"], self, self.pers["team"], 5.0 );
+		//	Trace["entity"] maps\mp\gametypes\_gameobjects::set3DIcon( "friendly", "waypoint_bomb" );
+		}
+	}
+
+}
 
 GunShotPlayer()
 {
