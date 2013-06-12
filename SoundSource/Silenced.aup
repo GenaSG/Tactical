@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Silenced_data" version="1.3.0" audacityversion="2.0.3" sel0="0.0000000000" sel1="2.8643057223" vpos="0" h="0.0000000000" zoom="216.4573408402" rate="44100.0">
+	<tags>
+		<tag name="TITLE" value="Heavy pistol"/>
+		<tag name="ARTIST" value="GenaSG"/>
+	</tags>
+	<wavetrack name="whizby_01" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="0.891251" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="77302">
+				<waveblock start="0">
+					<simpleblockfile filename="e000067a.au" len="77302" min="-1.0" max="0.999969" rms="0.122211"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="whizby_01" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="0.891251" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="77302">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000fda.au" len="77302" min="-1.0" max="0.999969" rms="0.1195"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="weap_deserteagle_slmn_2" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="83124">
+				<waveblock start="0">
+					<simpleblockfile filename="e00004ca.au" len="83124" min="-1.275653" max="1.266922" rms="0.174652"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

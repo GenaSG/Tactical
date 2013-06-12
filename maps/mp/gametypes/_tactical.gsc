@@ -130,10 +130,11 @@ suppressioncontroller()
 	while(isalive(self))
         {
                 level waittill("suppress",start,end,owner,TheGun);
-		if(self != owner)
+		if((self != owner) && (distance(start,self getplayereyes()) <= distance(start,end)) && (distance(end,self getplayereyes()) <= distance(start,end)) )
 		{
 			eyes =self getplayereyes();
 			distvect = vectorfromlinetopoint( start, end, self getplayereyes() );
+			//distance(start,eyes) <= distance(start,end) && distance(end,eyes) <= distance(start,end)
 	                dist = length(distvect);
                 	//self iprintln("distance to vector="+dist);
 			trace = BulletTracePassed( eyes, eyes + distvect, true, self );
