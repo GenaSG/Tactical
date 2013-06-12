@@ -45,7 +45,7 @@ InitVars()
 	self.spottingDist=100000;	
 	self.nextSpotTime=0;
 	self.suppressiondist = 60;
-	self.snapplaydist = 200;
+	self.snapplaydist = 60;
 }
 
 InfiniteLoop()
