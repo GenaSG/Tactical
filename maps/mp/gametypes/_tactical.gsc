@@ -32,15 +32,20 @@ onPlayerSpawned()
 		self thread InfiniteLoop();
 		//self thread maps\mp\gametypes\_fx::init();
 		self thread GunShotPlayer();
-	//	if(getdvar("sv_testSoundBot")==1)
-	//	self thread SoundTestBot();
+		self thread indevelopment();
         }
+}
+indevelopment()
+{
+	//      self thread SoundTestBot();
 }
 InitVars()
 {
 	self.spotDelay=1;
 	self.spottingDist=100000;	
 	self.nextSpotTime=0;
+	self.suppressiondist = 60;
+	self.snapplaydist = 200;
 }
 
 InfiniteLoop()
@@ -122,19 +127,25 @@ movespeed()
 }
 suppressioncontroller()
 {
-	self.suppressiondist = 60;
 	while(isalive(self))
         {
-                level waittill("suppress",start,end,owner);
+                level waittill("suppress",start,end,owner,TheGun);
 		if(self != owner)
 		{
+			eyes =self getplayereyes();
 			distvect = vectorfromlinetopoint( start, end, self getplayereyes() );
 	                dist = length(distvect);
                 	//self iprintln("distance to vector="+dist);
-               		if ( dist <= self.suppressiondist )
-               		{
+			trace = BulletTracePassed( eyes, eyes + distvect, true, self );
+			
+               		if ( dist <= self.suppressiondist && trace )
+               		{	
                         	self thread playsuppression(dist);
                 	}
+			if ( dist <= self.snapplaydist )
+			{	
+				self notify("PlayGunShot", "bulletsnap" , eyes + distvect );
+			}
 		}
 		
         }
@@ -176,7 +187,6 @@ gunwatcher()
 	while(isalive(self))
 	{
 		self waittill("weapon_fired");
-	//	self iprintln("server fired");
 	       	SoundOrigin = self getPlayerEyes();
                 TheGun = self GetCurrentWeapon();
                 for(i=0;i<=level.players.size;i++)
@@ -187,23 +197,22 @@ gunwatcher()
         	        }      
 		}
 	
-               // self iprintln("velocity" + vel);
-		//self playsoundtoplayer( "whizby", self );
-		self thread sendshotvector();
+		//self playsoundtoplayer( "bulletsnap", self );
+		self thread sendshotvector(TheGun);
 	}
 }
 
-sendshotvector()
+sendshotvector(TheGun)
 {
 	maxdist = 5000000;
 	owner = self;
 	start = self getplayereyes();
 	angle = self getplayerangles();
 	vector = vectorscale( anglestoforward( angle ), maxdist );
-	trace = bullettrace( start, start + vector, 0, self );
+	trace = bullettrace( start, start + vector, true, self );
 	end = trace["position"];
 	suppressionvector = vectorscale( anglestoforward( angle ), distance(start,end) );
-	level notify("suppress", start,end, owner);
+	level notify("suppress", start,end, owner,TheGun);
 		
 }
 getplayereyes()
