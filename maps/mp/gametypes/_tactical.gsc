@@ -45,7 +45,7 @@ InitVars()
 	self.spottingDist=100000;	
 	self.nextSpotTime=0;
 	self.suppressiondist = 60;
-	self.snapplaydist = 60;
+	self.snapplaydist = 120;
 }
 
 InfiniteLoop()
@@ -139,7 +139,7 @@ suppressioncontroller()
                 	//self iprintln("distance to vector="+dist);
 			trace = BulletTracePassed( eyes, eyes + distvect, true, self );
 			
-               		if ( dist <= self.suppressiondist && trace )
+               		if ( dist <= self.suppressiondist )
                		{	
                         	self thread playsuppression(dist);
                 	}
