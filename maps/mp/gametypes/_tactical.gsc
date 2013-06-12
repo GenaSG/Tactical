@@ -127,6 +127,7 @@ movespeed()
 }
 suppressioncontroller()
 {
+	sActor=Spawn( "script_origin", self getPlayerEyes() );
 	while(isalive(self))
         {
                 level waittill("suppress",start,end,owner,TheGun);
@@ -145,11 +146,13 @@ suppressioncontroller()
                 	}
 			if ( dist <= self.snapplaydist )
 			{	
-				self notify("PlayGunShot", "bulletsnap" , eyes + distvect );
+				sActor playsoundtoplayer( "bulletsnap" , self );
+			//	self notify("PlayGunShot", "bulletsnap" , eyes + distvect );
 			}
 		}
 		
         }
+	sActor delete();
 }
 playsuppression(distance)
 {
