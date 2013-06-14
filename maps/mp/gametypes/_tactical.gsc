@@ -146,6 +146,7 @@ suppressioncontroller()
                 	}
 			if ( dist <= self.snapplaydist )
 			{	
+				sActor.origin = eyes + distvect;
 				sActor playsoundtoplayer( "bulletsnap" , self );
 			//	self notify("PlayGunShot", "bulletsnap" , eyes + distvect );
 			}
