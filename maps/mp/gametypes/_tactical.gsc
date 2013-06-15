@@ -30,14 +30,14 @@ onPlayerSpawned()
 		self thread SuppressionController();
 		self thread moveSpeed();
 		self thread InfiniteLoop();
-		//self thread maps\mp\gametypes\_fx::init();
-		self thread GunShotPlayer();
 		self thread indevelopment();
         }
 }
 indevelopment()
 {
-	//      self thread SoundTestBot();
+	      self thread SoundTestBot();
+	//	self thread GunShotPlayer();
+	//	self thread maps\mp\gametypes\_fx::init();
 }
 InitVars()
 {
@@ -53,7 +53,6 @@ InfiniteLoop()
 	while(isAlive(self))
 	{
 		self thread enemySpotter();
-	//	self iprintln(self.psoffsettime);
 		wait 0.05;
 	}
 }
@@ -127,7 +126,7 @@ movespeed()
 }
 suppressioncontroller()
 {
-	sActor=Spawn( "script_origin", self getPlayerEyes() );
+	//sActor=Spawn( "script_origin", self getPlayerEyes() );
 	while(isalive(self))
         {
                 level waittill("suppress",start,end,owner,TheGun);
@@ -144,16 +143,17 @@ suppressioncontroller()
                		{	
                         	self thread playsuppression(dist);
                 	}
-			if ( dist <= self.snapplaydist )
-			{	
-				sActor.origin = eyes + distvect;
-				sActor playsoundtoplayer( "bulletsnap" , self );
+			//if ( dist <= self.snapplaydist )
+			//{	
+			//	sActor.origin = eyes + distvect;
+			//	sActor playsoundtoplayer( "bulletsnap" , self );
+			//	self playsoundtoplayer( "bulletsnap" , self );
 			//	self notify("PlayGunShot", "bulletsnap" , eyes + distvect );
-			}
+			//}
 		}
 		
         }
-	sActor delete();
+	//sActor delete();
 }
 playsuppression(distance)
 {
@@ -163,7 +163,7 @@ playsuppression(distance)
 	}
 	time = 1/distance;
 	self shellshock( "frag_grenade_mp", 0.5 );
-	//self playsoundtoplayer( "whizby", self );
+	self playsoundtoplayer( "bulletsnap", self );
 }
 SoundTestBot()
 {
