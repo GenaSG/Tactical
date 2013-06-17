@@ -163,7 +163,7 @@ playsuppression(distance)
 	}
 	time = 1/distance;
 	self shellshock( "frag_grenade_mp", 0.5 );
-	self playsoundtoplayer( "bulletsnap", self );
+//	self playsoundtoplayer( "bulletsnap", self );
 }
 SoundTestBot()
 {
@@ -202,7 +202,7 @@ gunwatcher()
         	        }      
 		}
 	
-		//self playsoundtoplayer( "bulletsnap", self );
+		//self playsoundtoplayer( "whizby", self );
 		self thread sendshotvector(TheGun);
 	}
 }
