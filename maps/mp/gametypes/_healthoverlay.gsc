@@ -55,7 +55,9 @@ onPlayerSpawned()
 	for(;;)
 	{
 		self waittill("spawned_player");
-		self thread playerHealthRegen();
+		if(self hasPerk("specialty_armorvest")){
+			self thread playerHealthRegen();
+		}
 	}
 }
 
