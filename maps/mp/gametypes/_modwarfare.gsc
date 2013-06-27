@@ -143,7 +143,7 @@ init()
 	setDvarDefault( "class_assault_secondary", "beretta" );
 	setDvarDefault( "class_assault_secondary_attachment", "none" );
 	setDvarDefault( "class_assault_perk1", "specialty_null" );
-	setDvarDefault( "class_assault_perk2", "specialty_bulletdamage" );
+	setDvarDefault( "class_assault_perk2", "specialty_armorvest" );
 	setDvarDefault( "class_assault_perk3", "specialty_longersprint" );
 	setDvarDefault( "class_assault_grenade", "concussion_grenade" );
 	setDvarDefault( "class_assault_camo", "camo_none" );
@@ -195,7 +195,7 @@ init()
 	setDvarDefault( "class_sniper_secondary", "beretta" );
 	setDvarDefault( "class_sniper_secondary_attachment", "silencer" );
 	setDvarDefault( "class_sniper_perk1", "specialty_specialgrenade" );
-	setDvarDefault( "class_sniper_perk2", "specialty_bulletdamage" );
+	setDvarDefault( "class_sniper_perk2", "specialty_gpsjammer" );
 	setDvarDefault( "class_sniper_perk3", "specialty_bulletpenetration" );
 	setDvarDefault( "class_sniper_grenade", "flash_grenade" );
 	setDvarDefault( "class_sniper_camo", "camo_none" );
