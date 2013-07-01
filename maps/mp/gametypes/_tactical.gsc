@@ -216,7 +216,7 @@ sendshotvector(TheGun)
 	vector = vectorscale( anglestoforward( angle ), maxdist );
 	trace = bullettrace( start, start + vector, true, self );
 	end = trace["position"];
-	self iprintln("Distance=" + distance(start,end)*0.0254);
+	//self iprintln("Distance=" + distance(start,end)*0.0254);
 	suppressionvector = vectorscale( anglestoforward( angle ), distance(start,end) );
 	level notify("suppress", start,end, owner,TheGun);
 		
