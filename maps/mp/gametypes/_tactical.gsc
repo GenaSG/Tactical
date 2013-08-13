@@ -35,9 +35,47 @@ onPlayerSpawned()
 }
 indevelopment()
 {
-	      self thread SoundTestBot();
-	//	self thread GunShotPlayer();
+//	self thread spawnBullets();
+//		self thread SoundTestBot();
+		self thread GunShotPlayer();
 	//	self thread maps\mp\gametypes\_fx::init();
+}
+spawnBullets()
+{
+	self.bullets=[];
+	for(b=0;b<=6;b++)
+	{
+		self iprintln("spawning bullet #"+b);
+		self.bullets[b]=spawn("script_origin",self.origin);	
+		self.bullets[b].owner=self;
+		self.bullets[b].fired=false;
+//		self.bullets[b] LinkTo(self,"tag_gunRight",(0,0,0),(0,0,0));
+	}
+}
+shootBullet()
+{
+	TheBullet=undefined;
+	for(b=0;b<=6;b++)
+        {
+                self iprintln("shooting bullet #"+b);
+		if(!self.bullets[b].fired)
+		{
+			TheBullet=self.bullets[b];
+			TheBullet.fired=true;
+			break;
+		}
+        }
+//	TheBullet.origin=self.origin;
+	Trace = Bullettrace(self getplayereyes(),self getplayereyes()+anglestoforward(self getplayerangles())*self.spottingDist,true,self);
+	if(isDefined(TheBullet))
+	{
+		TheBullet.flyTime=distance(self.origin,Trace["position"])/30000;
+		self IprintLn("FlyTime = "+ TheBullet.flyTime);
+		TheBullet.origin=self.origin;
+		TheBullet MoveTo(Trace["position"], TheBullet.flyTime, 0, 0);
+		TheBullet waittill("movedone");
+		TheBullet.fired=false;
+	}
 }
 InitVars()
 {
@@ -55,6 +93,12 @@ InfiniteLoop()
 		self thread enemySpotter();
 		wait 0.05;
 	}
+	//Deleting bullets
+        for(b=0;b<=6;b++)
+        {
+		self iprintln("deleting bullet #"+b);
+                self.bullets[b] delete();
+        }
 }
 
 enemySpotter()
@@ -72,21 +116,26 @@ enemySpotter()
 		//	Trace["entity"] maps\mp\gametypes\_gameobjects::set3DIcon( "friendly", "waypoint_bomb" );
 		}
 	}
-
+ 
 }
 
 GunShotPlayer()
 {
-	actor = Spawn( "script_origin", self getPlayerEyes() );
+	if(!isDefined(self.soundActor)){
+	self.soundActor = Spawn( "script_origin", self getPlayerEyes() );
+	}
 	while(isAlive(self))
 	{
 		self waittill("PlayGunShot",ShotSound,Source);
-		actor.origin = Source;
-		actor playsoundtoplayer( ShotSound , self );	
+		self.soundActor.origin = Source;
+		if(distance(self.soundActor.origin,self.origin)>=1200){
+			self.soundActor playsoundtoplayer( ShotSound , self );
+		}	
 		
 	}
-	actor delete();
+	self.soundActor delete();
 }
+
 
 sendshotsound(TheGun,SoundOrigin)
 {
@@ -192,6 +241,7 @@ gunwatcher()
 	while(isalive(self))
 	{
 		self waittill("weapon_fired");
+		//self thread shootBullet();
 	       	SoundOrigin = self getPlayerEyes();
                 TheGun = self GetCurrentWeapon();
                 for(i=0;i<=level.players.size;i++)
