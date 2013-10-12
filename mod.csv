@@ -2,6 +2,6 @@ menufile,ui_mp/scriptmenus/changeclass_marines_mw.menu
 menufile,ui_mp/scriptmenus/changeclass_opfor_mw.menu
 menufile,ui_mp/scriptmenus/changeclass_mw.menu
 fx,test/brick_1
-fx,test/brick_fast
 fx,muzzleflashes/minigun_flash_view
+fx,smoke/smoke_geotrail_barret
 sound,tactical,all_mp
