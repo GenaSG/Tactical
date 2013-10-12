@@ -94,11 +94,11 @@ InfiniteLoop()
 		wait 0.05;
 	}
 	//Deleting bullets
-        for(b=0;b<=6;b++)
-        {
-		self iprintln("deleting bullet #"+b);
-                self.bullets[b] delete();
-        }
+//        for(b=0;b<=6;b++)
+//        {
+//		self iprintln("deleting bullet #"+b);
+//              self.bullets[b] delete();
+//        }
 }
 
 enemySpotter()
@@ -129,6 +129,7 @@ GunShotPlayer()
 		self waittill("PlayGunShot",ShotSound,Source);
 		self.soundActor.origin = Source;
 		if(distance(self.soundActor.origin,self.origin)>=1200){
+			self.soundActor playsoundtoplayer( "null" , self );
 			self.soundActor playsoundtoplayer( ShotSound , self );
 		}	
 		
@@ -220,10 +221,12 @@ SoundTestBot()
 	wait(1);
 	while(isAlive(self))
 	{
+		self waittill("weapon_fired");
 	//	TheGun=getdvar("sv_testbotgun");
 	//	if(!isDefined(TheGun))
 	//	{
-			TheGun = self GetCurrentWeapon();
+			//TheGun = self GetCurrentWeapon();
+			TheGun = "barrett_mp";
 	//	}
                 for(i=0;i<=level.players.size;i++)
                 {
@@ -232,7 +235,7 @@ SoundTestBot()
                         	level.players[i] thread sendshotsound(TheGun,bot.origin);
 			}
                 }		
-		wait 0.2;
+		wait 0.05;
 	}
 	bot delete();
 }
